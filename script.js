@@ -8,12 +8,28 @@ const personalMovieDB = {
     privat: false
 };
 
-const a = prompt('Один из просмотренных фильмов?', ''),
-      b = prompt('Оцени шлюха!!!', ''),
-      c = prompt('Один из просмотренных фильмов?', ''),
-      d = prompt('Оцени шлюха!!!', '');
 
-personalMovieDB.movies[a] = b;
-personalMovieDB.movies[c] = d;
+for (let i = 0; i < 2; i++) {
+    const a = prompt('Один из просмотренных фильмов?', ''),
+          b = prompt('Оцени!!!', '');
+
+          if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+              personalMovieDB.movies[a] = b;
+              console.log('all done!');
+          } else {
+              console.log('error');
+              i--;
+          } 
+}
+
+if (personalMovieDB.count < 10) {
+    console.log("Мала!");
+} else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
+    console.log('Норми!!');
+} else if (personalMovieDB.count >= 30) {
+    console.log('Ебать ты задр!!!');
+} else {
+    console.log('напиши че нить!');
+}
 
 console.log(personalMovieDB);
